@@ -1,0 +1,105 @@
+/* ─── Nav Rail column ───────────────────────────────────────────────────────── */
+
+.nav-rail {
+  width: var(--sidebar-w); /* 56px from design tokens */
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-20) 0;
+  background: var(--surface-page);
+  border-right: 1px solid var(--border);
+
+  /* Full height so the avatar spacer works */
+  align-self: stretch;
+}
+
+/* ─── Pill container ────────────────────────────────────────────────────────── */
+
+.nav-pill {
+  width: 44px;
+  background: var(--surface);
+  border-radius: 22px;
+  box-shadow: var(--shadow-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-12) 0;
+
+  /* Pill fills the nav-rail height minus the top/bottom padding */
+  flex: 1;
+  max-height: 600px; /* caps height so it reads as a contained pill */
+}
+
+/* ─── Active item ───────────────────────────────────────────────────────────── */
+
+.nav-item-active {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--danger);
+  flex-shrink: 0;
+  cursor: default;
+}
+
+/* ─── Separator ─────────────────────────────────────────────────────────────── */
+
+.nav-separator {
+  width: 28px;
+  height: 1px;
+  background: var(--border-light);
+  flex-shrink: 0;
+  margin: var(--space-2) 0;
+}
+
+/* ─── Inline icon (no circle background) ────────────────────────────────────── */
+
+.nav-item-inline {
+  width: 44px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  cursor: default;
+}
+
+/* ─── Inactive items (circle background) ────────────────────────────────────── */
+
+.nav-item-inactive {
+  width: var(--size-avatar-lg);  /* 34px */
+  height: var(--size-avatar-lg); /* 34px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-muted);
+  border-radius: var(--radius-full);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  margin: var(--space-4) 0;
+  cursor: default;
+}
+
+/* ─── Spacer ─────────────────────────────────────────────────────────────────── */
+
+.nav-spacer {
+  flex: 1;
+  min-height: var(--space-8);
+}
+
+/* ─── Avatar ────────────────────────────────────────────────────────────────── */
+
+.nav-avatar {
+  width: var(--size-avatar-lg);  /* 34px */
+  height: var(--size-avatar-lg); /* 34px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-muted);
+  border-radius: var(--radius-full);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  cursor: default;
+}
