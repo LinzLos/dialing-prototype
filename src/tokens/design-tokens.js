@@ -11,19 +11,19 @@ export const tokens = {
   colors: {
     // Surfaces
     surface:       '#FFFFFF',
-    surfaceSubtle: '#F7F4F3',
-    surfacePage:   '#F7F4F3',
-    surfaceMuted:  '#F1EDEC',
+    surfaceSubtle: '#F7F4F2',
+    surfacePage:   '#F7F4F2',
+    surfaceMuted:  '#F1EDEB',
 
     // Borders
-    border:        '#DDD7D5',
-    borderLight:   '#E8E3E2',
-    borderDashed:  '#AD9B9A',
+    border:        '#D6CFCB',
+    borderLight:   '#E5DFDC',
+    borderDashed:  '#A89E99',
 
     // Text
     textPrimary:   '#1E1918',
     textSecondary: '#5C504F',
-    textTertiary:  '#8A7E7D',
+    textTertiary:  '#6E625F',
     textInverse:   '#FFFFFF',
 
     // Brand (green)
@@ -37,25 +37,25 @@ export const tokens = {
     dangerLight:   '#FBEFEB',
     dangerMid:     '#EBB39D',
 
-    // Status — Warning (warm brown)
-    warning:       '#6B4B3E',
-    warningLight:  '#F3F0EF',
-    warningMid:    '#C3B7B1',
+    // Status — Warning (disciplined amber)
+    warning:       '#9A6B33',
+    warningLight:  '#F4EFEA',
+    warningMid:    '#DCC9B5',
 
     // Status — Info (dark blue)
-    info:          '#1B4079',
-    infoLight:     '#ECEFF4',
-    infoMid:       '#AFBCD0',
+    info:          '#243B83',
+    infoLight:     '#EEF1FB',
+    infoMid:       '#BCC9EA',
 
-    // Accent (sky blue)
-    accent:        '#0EA5E9',
-    accentLight:   '#EBF7FD',
+    // Accent (cobalt)
+    accent:        '#2F4BA6',
+    accentLight:   '#EEF1FB',
 
     // Data / charts
     dataInflow:    '#CE430A',  // volume coming in — reads as pressure
     dataOutflow:   '#629460',  // volume going out — reads as relief
-    dataTarget:    '#AD9B9A',  // baseline / target reference line
-    chartBlue:     '#1B4079',
+    dataTarget:    '#A89E99',  // baseline / target reference line
+    chartBlue:     '#243B83',
     chartAzure:    '#0EA5E9',
   },
 
@@ -74,9 +74,9 @@ export const tokens = {
       md:    12,
       base:  13,
       lg:    16,
-      xl:    18,
-      '2xl': 20,
-      '3xl': 26,
+      xl:    19,
+      '2xl': 23,
+      '3xl': 28,
     },
     fontWeight: {
       light:    300,
@@ -92,9 +92,9 @@ export const tokens = {
       normal:  1.5,
     },
     letterSpacing: {
-      tight:  '-0.6px',
-      snug:   '-0.3px',
-      slight: '-0.1px',
+      tight:  '-0.02em',
+      snug:   '-0.01em',
+      slight: '-0.005em',
       caps:   '0.07em',
     },
   },
@@ -106,9 +106,9 @@ export const tokens = {
     0:  0,
     2:  2,
     4:  4,
-    5:  5,
+    5:  4,
     6:  6,
-    7:  7,
+    7:  8,
     8:  8,
     10: 10,
     12: 12,
@@ -125,7 +125,7 @@ export const tokens = {
     xs:   '4px',
     sm:   '6px',
     md:   '8px',
-    base: '10px',
+    base: '8px',
     full: '9999px',
   },
 
