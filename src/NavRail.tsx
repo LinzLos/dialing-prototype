@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './NavRail.css'
 
 // ─── SVG Icons ───────────────────────────────────────────────────────────────
@@ -73,6 +74,46 @@ function IconUser() {
   )
 }
 
+function IconSun() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" />
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+    </svg>
+  )
+}
+
+function IconMoon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  )
+}
+
+function ThemeToggle() {
+  const [dark, setDark] = useState(() => document.documentElement.getAttribute('data-theme') === 'dark')
+  const toggle = () => {
+    const next = !dark
+    setDark(next)
+    if (next) document.documentElement.setAttribute('data-theme', 'dark')
+    else document.documentElement.removeAttribute('data-theme')
+    try { localStorage.setItem('tw-theme', next ? 'dark' : 'light') } catch (e) { /* ignore */ }
+  }
+  return (
+    <button
+      type="button"
+      className="nav-item-inactive nav-theme-toggle"
+      onClick={toggle}
+      title={dark ? 'Switch to light' : 'Switch to dark'}
+      aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-pressed={dark}
+    >
+      {dark ? <IconSun /> : <IconMoon />}
+    </button>
+  )
+}
+
 // ─── Nav Rail ─────────────────────────────────────────────────────────────────
 
 const INACTIVE_ITEMS = [
@@ -109,6 +150,9 @@ export function NavRail() {
 
         {/* Spacer pushes avatar to bottom */}
         <div className="nav-spacer" />
+
+        {/* Theme toggle */}
+        <ThemeToggle />
 
         {/* Avatar */}
         <div className="nav-avatar" title="Profile">
