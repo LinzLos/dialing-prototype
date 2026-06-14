@@ -49,6 +49,9 @@
   --brand-mid:      #C8D9C7;
   --brand-dark:     #3F603E;
 
+  /* --- Nav logomark — brand red in light, ink monochrome in dark --- */
+  --logo:           #CE430A;
+
   /* --- Status: Danger (orange-red) --- */
   --danger:         #CE430A;
   --danger-light:   #FBEFEB;
@@ -191,6 +194,8 @@
   --text-secondary: #C5B6B2;
   --text-tertiary:  #A0928E;
   --text-inverse:   #1E1918;
+
+  --logo:           #F4EEEC;   /* ink monochrome logomark in dark */
 
   --brand:          #8FB68D;
   --brand-light:    #1F2A1F;
