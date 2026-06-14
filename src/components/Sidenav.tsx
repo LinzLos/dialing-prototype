@@ -141,6 +141,8 @@ export default function Sidenav({ navItems, logo }: Props) {
             >
               <Link
                 to={path}
+                onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = 'var(--surface-muted)' }}
+                onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = 'transparent' }}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -148,10 +150,10 @@ export default function Sidenav({ navItems, logo }: Props) {
                   width: 'var(--size-nav-item)',
                   height: 'var(--size-nav-item)',
                   borderRadius: 'var(--radius-md)',
-                  background: isActive ? 'var(--surface)' : 'transparent',
-                  boxShadow: isActive ? 'var(--shadow-nav)' : 'none',
+                  background: isActive ? 'var(--surface-muted)' : 'transparent',
                   textDecoration: 'none',
                   flexShrink: 0,
+                  transition: 'background 0.15s ease',
                 }}
               >
                 <svg width="20" height="20" fill="none" viewBox={viewBox}>
