@@ -364,7 +364,5 @@ body {
 }
 
 .nav-item-wrap:hover a {
-  background: var(--surface) !important;
-  box-shadow: var(--shadow-nav) !important;
-  transform: scale(1.08);
+  background: var(--surface-muted) !important;
 }
