@@ -103,14 +103,3 @@
   flex-shrink: 0;
   cursor: default;
 }
-
-/* Theme toggle — reuses .nav-item-inactive circle, resets <button> defaults */
-.nav-theme-toggle {
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  font: inherit;
-  color: var(--text-secondary);
-  transition: color var(--duration-fast, 0.15s), background var(--duration-fast, 0.15s);
-}
-.nav-theme-toggle:hover { color: var(--text-primary); background: var(--surface-inset, var(--surface-muted)); }
