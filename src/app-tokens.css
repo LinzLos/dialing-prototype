@@ -1,0 +1,19 @@
+/* dialing-prototype — app-specific token overrides.
+   Tiny Wire (src/lib/tokens.css) is the source for every other token; redefine
+   only what this app intentionally diverges on, or what Tiny Wire has no opinion on. */
+:root {
+  --logo: var(--danger);   /* orange-red logomark in light; Tiny Wire gives ink in dark */
+
+  /* Sizes Tiny Wire doesn't define */
+  --size-logo-mark: 32px;
+  --size-nav-item:  40px;
+  --size-bar:        5px;
+  --size-bar-lg:     6px;
+
+  /* Tint-overlay opacity scale (dialing-specific) */
+  --opacity-subtle: 0.01;
+  --opacity-light:  0.04;
+  --opacity-medium: 0.06;
+  --opacity-strong: 0.08;
+  --opacity-fill:   0.12;
+}
