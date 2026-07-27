@@ -13,12 +13,14 @@
 
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import type { Icon as PhosphorIcon } from '@phosphor-icons/react'
 
 export type NavItem = {
   path: string
   label: string
-  viewBox: string
-  d: string
+  Icon: PhosphorIcon
+  /** false = routes to a "Preview only" stub page. Defaults to true. */
+  preview?: boolean
 }
 
 type Props = {
@@ -133,7 +135,7 @@ export default function Sidenav({ navItems, logo }: Props) {
         width: '100%',
         boxSizing: 'border-box',
       }}>
-        {navItems.map(({ path, label, viewBox, d }) => {
+        {navItems.map(({ path, label, Icon }) => {
           const isActive = pathname === path
           return (
             <div
@@ -143,6 +145,8 @@ export default function Sidenav({ navItems, logo }: Props) {
             >
               <Link
                 to={path}
+                aria-label={label}
+                aria-current={isActive ? 'page' : undefined}
                 onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = 'var(--surface-muted)' }}
                 onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = 'transparent' }}
                 style={{
@@ -153,20 +157,13 @@ export default function Sidenav({ navItems, logo }: Props) {
                   height: 'var(--size-nav-item)',
                   borderRadius: 'var(--radius-md)',
                   background: isActive ? 'var(--surface-muted)' : 'transparent',
+                  color: isActive ? 'var(--brand)' : 'var(--text-tertiary)',
                   textDecoration: 'none',
                   flexShrink: 0,
-                  transition: 'background 0.15s ease',
+                  transition: 'background 0.15s ease, color 0.15s ease',
                 }}
               >
-                <svg width="20" height="20" fill="none" viewBox={viewBox}>
-                  <path
-                    d={d}
-                    stroke={isActive ? 'var(--brand)' : 'var(--text-tertiary)'}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
-                </svg>
+                <Icon size={20} weight="regular" />
               </Link>
               <div className="nav-tooltip">{label}</div>
             </div>

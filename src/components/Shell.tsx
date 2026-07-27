@@ -39,23 +39,17 @@ export default function Shell({ navItems, logo, children }: Props) {
 
       {/* Bottom nav — mobile only */}
       <nav className="mobile-bottom-nav">
-        {navItems.map(({ path, label, viewBox, d }) => {
+        {navItems.map(({ path, label, Icon }) => {
           const isActive = pathname === path
           return (
             <Link
               key={path}
               to={path}
+              aria-current={isActive ? 'page' : undefined}
               className={`mobile-nav-item${isActive ? ' mobile-nav-item--active' : ''}`}
+              style={{ color: isActive ? 'var(--brand)' : 'var(--text-tertiary)' }}
             >
-              <svg width="22" height="22" fill="none" viewBox={viewBox}>
-                <path
-                  d={d}
-                  stroke={isActive ? 'var(--brand)' : 'var(--text-tertiary)'}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
+              <Icon size={22} weight="regular" />
               <span className="mobile-nav-label">{label}</span>
             </Link>
           )

@@ -131,12 +131,14 @@ body {
   border-right-color: var(--text-primary);
 }
 
-.nav-item-wrap:hover .nav-tooltip {
+.nav-item-wrap:hover .nav-tooltip,
+.nav-item-wrap:focus-within .nav-tooltip {
   opacity: 1;
   transition-delay: 600ms;
 }
 
-.nav-item-wrap a {
+.nav-item-wrap a,
+.nav-item-wrap button {
   transition:
     background      var(--duration-fast) var(--ease-standard),
     box-shadow      var(--duration-fast) var(--ease-standard),
@@ -145,4 +147,10 @@ body {
 
 .nav-item-wrap:hover a {
   background: var(--surface-muted) !important;
+}
+
+.nav-item-wrap a:focus-visible,
+.nav-item-wrap button:focus-visible {
+  outline: 2px solid var(--focus, var(--brand));
+  outline-offset: 2px;
 }

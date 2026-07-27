@@ -1,14 +1,92 @@
 import { useState, useRef, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Link, Routes, Route } from 'react-router-dom'
+import {
+  Broadcast,
+  ArrowsSplit,
+  Intersect,
+  UserPlus,
+  ClockCounterClockwise,
+} from '@phosphor-icons/react'
 import Shell from './components/Shell'
-import icons from './components/nav-icons'
 import './App.css'
 
 // ─── Nav ──────────────────────────────────────────────────────────────────────
 
 const navItems = [
-  { path: '/', label: 'Dialing Controls', ...icons.simulation },
+  { path: '/',                    label: 'Predictive dialing',                  Icon: Broadcast },
+  { path: '/lead-routing',        label: 'Lead routing',                        Icon: ArrowsSplit,           preview: false },
+  { path: '/channel-assignment',  label: 'Channel assignment & de-duplication', Icon: Intersect,             preview: false },
+  { path: '/team-assignment',     label: 'Team member assignment',              Icon: UserPlus,              preview: false },
+  { path: '/change-history',      label: 'Global change history',               Icon: ClockCounterClockwise, preview: false },
 ]
+
+const PREVIEW_LABELS: Record<string, string> = {
+  '/lead-routing':       'Lead routing',
+  '/channel-assignment': 'Channel assignment & de-duplication',
+  '/team-assignment':    'Team member assignment',
+  '/change-history':     'Global change history',
+}
+
+function PreviewOnlyPage({ label }: { label: string }) {
+  return (
+    <div style={{
+      minHeight: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '48px 24px',
+    }}>
+      <div style={{
+        maxWidth: 440,
+        textAlign: 'center',
+        background: 'var(--surface)',
+        border: '1px solid var(--border)',
+        borderRadius: 'var(--radius)',
+        padding: '32px 28px',
+        boxShadow: 'var(--shadow-sm, none)',
+      }}>
+        <div style={{
+          fontSize: 'var(--text-xs)',
+          fontWeight: 'var(--weight-semibold)',
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
+          color: 'var(--text-tertiary)',
+          marginBottom: 8,
+        }}>
+          Preview only
+        </div>
+        <h1 style={{
+          fontSize: 'var(--text-xl, 22px)',
+          fontWeight: 'var(--weight-semibold)',
+          color: 'var(--text-primary)',
+          margin: '0 0 12px',
+        }}>
+          {label}
+        </h1>
+        <p style={{
+          fontSize: 'var(--text-md, 15px)',
+          color: 'var(--text-secondary)',
+          lineHeight: 1.5,
+          margin: '0 0 20px',
+        }}>
+          This section isn't wired up in the preview yet. It appears in the nav so the full product surface is visible during the walkthrough.
+        </p>
+        <Link
+          to="/"
+          style={{
+            display: 'inline-block',
+            fontSize: 'var(--text-sm, 14px)',
+            fontWeight: 'var(--weight-semibold)',
+            color: 'var(--brand)',
+            textDecoration: 'none',
+          }}
+        >
+          ← Back to Predictive dialing
+        </Link>
+      </div>
+    </div>
+  )
+}
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -191,6 +269,9 @@ export default function App() {
     <Shell navItems={navItems}>
       <Routes>
         <Route path="/" element={<DialingPage />} />
+        {Object.entries(PREVIEW_LABELS).map(([path, label]) => (
+          <Route key={path} path={path} element={<PreviewOnlyPage label={label} />} />
+        ))}
       </Routes>
     </Shell>
   )
