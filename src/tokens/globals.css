@@ -1,7 +1,7 @@
 /**
  * dialing-prototype — app styles (reset, base, utilities, keyframes, nav tooltip).
  * Design tokens come from vendored Tiny Wire (src/lib/tokens.css) + src/app-tokens.css.
- * Fonts (in <head>): Bricolage Grotesque (display) + DM Sans (body).
+ * Fonts: src/lib/fonts.css (vendored Tiny Wire) loads Host Grotesk (display) + DM Sans (body).
  */
 
 /* ─── Reset ───────────────────────────────────────────────────────────────── */

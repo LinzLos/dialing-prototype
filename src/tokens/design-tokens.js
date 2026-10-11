@@ -63,7 +63,7 @@ export const tokens = {
 
   typography: {
     fontFamily: {
-      heading: "'Bricolage Grotesque', sans-serif",
+      heading: "'Host Grotesk', sans-serif",
       body:    "'DM Sans', sans-serif",
     },
     // px values
